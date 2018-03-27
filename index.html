@@ -1,6 +1,79 @@
 <html>
-<H1>
-HALOO SEMUA
-</h1>
+<head>
+  <meta charset=utf-8 />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase Cloud Messaging Example</title>
 
+  <!-- Material Design Theming -->
+ <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+ 
+ <script src="jquery-3.3.1.min.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDCDnUzPUCH9PrzqtcN523K06OdqANYT7g",
+    authDomain: "notif-30a21.firebaseapp.com",
+    databaseURL: "https://notif-30a21.firebaseio.com",
+    projectId: "notif-30a21",
+    storageBucket: "notif-30a21.appspot.com",
+    messagingSenderId: "923195964476"
+  };
+  firebase.initializeApp(config);
+  
+  // Retrieve Firebase Messaging object.
+const messaging = firebase.messaging();
+
+messaging.requestPermission()
+.then(function() {
+  console.log('Notification permission granted.');
+ getRegToken();
+})
+.catch(function(err) {
+  console.log('Unable to get permission to notify.', err);
+});
+  
+  function getRegToken(argument){
+   messaging.getToken()
+  .then(function(currentToken) {
+    if (currentToken) {
+	
+	console.log(currentToken);
+      //sendTokenToServer(currentToken);
+     // updateUIForPushEnabled(currentToken);
+    } else {
+      // Show permission request.
+      console.log('No Instance ID token available. Request permission to generate one.');
+      // Show permission UI.
+     // updateUIForPushPermissionRequired();
+      setTokenSentToServer(false);
+    }
+  })
+  .catch(function(err) {
+   // console.log('An error occurred while retrieving token. ', err);
+    //showToken('Error retrieving Instance ID token. ', err);
+    setTokenSentToServer(false);
+  });
+}
+
+
+
+
+function setTokenSentToServer(sent) {
+    window.localStorage.setItem('sentToServer', sent ? 1 : 0);
+  }
+  
+  
+</script>
+ 
+
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+<center>
+
+<H1>COBA</h1>
+<h2>BISMilah</h2>
+
+</center>
+</body>
 </html>
