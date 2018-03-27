@@ -31,19 +31,19 @@
 		  alert("Hello! I am an alert box!");
 		}else{
 		getRegToken();
-		alert("SALAH");
 		}
 		})
 		.catch(function(err) {
 		  console.log('Unable to get permission to notify.', err);
 		});
   
-  function getRegToken(argument){
+  function getRegToken(){
    messaging.getToken()
   .then(function(currentToken) {
     if (currentToken) {
 	 
 	console.log(currentToken);
+	alert(currentToken);
 	setTokenSentToServer(true);
       //sendTokenToServer(currentToken);
      // updateUIForPushEnabled(currentToken);
@@ -85,7 +85,7 @@
 <center>
 
 <H1>COBA</h1>
-<h2>BISMilah7</h2>
+<h2>BISMilah8</h2>
 
 </center>
 </body>
