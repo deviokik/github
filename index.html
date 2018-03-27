@@ -29,8 +29,9 @@
 		  //asas
 								  messaging.getToken().then(function(currentToken) {
 							if (currentToken) {
+							 alert(currentToken);
 							  sendTokenToServer(currentToken);
-							  alert(currentToken);
+							 
 							} else {
 							  // Show permission request.
 							  console.log('No Instance ID token available. Request permission to generate one.');
