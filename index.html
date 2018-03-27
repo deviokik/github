@@ -41,19 +41,24 @@
   
 
 function panggil(){
+alert("SALAH1");
  messaging.getToken().then(function(currentToken) {
     if (currentToken) {
-     alert("benar1");
+      sendTokenToServer(currentToken);
+      updateUIForPushEnabled(currentToken);
     } else {
-     alert("SALAH1");
+      // Show permission request.
+      console.log('No Instance ID token available. Request permission to generate one.');
+      // Show permission UI.
+      updateUIForPushPermissionRequired();
+      setTokenSentToServer(false);
     }
-  .catch(function(err) {
+  }).catch(function(err) {
     console.log('An error occurred while retrieving token. ', err);
     showToken('Error retrieving Instance ID token. ', err);
     setTokenSentToServer(false);
   });
-  
-  )}
+
 }
 
 
