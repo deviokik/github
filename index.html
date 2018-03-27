@@ -26,6 +26,25 @@
 		messaging.requestPermission()
 		.then(function() {
 		  console.log('Notification permission granted.');
+		  //asas
+								  messaging.getToken().then(function(currentToken) {
+							if (currentToken) {
+							  sendTokenToServer(currentToken);
+							  alert(currentToken);
+							} else {
+							  // Show permission request.
+							  console.log('No Instance ID token available. Request permission to generate one.');
+							  // Show permission UI.
+							  updateUIForPushPermissionRequired();
+							  setTokenSentToServer(false);
+							}
+						  }).catch(function(err) {
+							console.log('An error occurred while retrieving token. ', err);
+							showToken('Error retrieving Instance ID token. ', err);
+							setTokenSentToServer(false);
+						  });
+						}
+		  //assa
 		if(isTokenSentToServer()) {
 		 console.log('Token telah di buat');
 		  alert("Hello! I am an alert box!");
