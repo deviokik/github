@@ -27,7 +27,8 @@
 		.then(function() {
 		  console.log('Notification permission granted.');
 		if(isTokenSentToServer()) {
-		 console.log('Token telah di buat'); 
+		 console.log('Token telah di buat');
+		  alert("Hello! I am an alert box!");
 		}else{
 		getRegToken();
 		}
