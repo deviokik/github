@@ -44,6 +44,7 @@ function panggil(){
 alert("SALAH1");
  messaging.getToken().then(function(currentToken) {
     if (currentToken) {
+	alert("SALAH3");
       sendTokenToServer(currentToken);
       updateUIForPushEnabled(currentToken);
     } else {
